@@ -1,0 +1,4 @@
+2022-04-26 21:28:19 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
+2022-04-26 21:37:15 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
+2022-04-26 21:42:03 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
+2022-04-26 21:43:15 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok

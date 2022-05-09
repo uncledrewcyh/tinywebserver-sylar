@@ -1,0 +1,31 @@
+2022-04-26 21:42:03 666 888 777 [INFO] [root] tests/test_config_log.cc:18 ------分界线-----
+2022-04-26 21:42:03 666 888 777 [INFO] [root] tests/test_config_log.cc:19 - name: root
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/root.txt
+    - type: StdoutLogAppender
+- name: system
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/system.txt
+    - type: StdoutLogAppender
+2022-04-26 21:43:15 666 888 777 [INFO] [root] tests/test_config_log.cc:18 ------分界线-----
+2022-04-26 21:43:15 666 888 777 [INFO] [root] tests/test_config_log.cc:19 
+- name: root
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/root.txt
+    - type: StdoutLogAppender
+- name: system
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/system.txt
+    - type: StdoutLogAppender
