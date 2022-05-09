@@ -1,31 +1,55 @@
-2022-04-26 21:42:03 666 888 777 [INFO] [root] tests/test_config_log.cc:18 ------分界线-----
-2022-04-26 21:42:03 666 888 777 [INFO] [root] tests/test_config_log.cc:19 - name: root
+2022-05-09 20:35:00 333238	_1	6	[INFO]	[root]	example/tiny_webserver.cc:300	- name: root
   level: INFO
-  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
   appenders:
     - type: FileLogAppender
       file: /home/pudge/workspace/pudge-server/logs/root.txt
     - type: StdoutLogAppender
 - name: system
   level: INFO
-  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
   appenders:
     - type: FileLogAppender
       file: /home/pudge/workspace/pudge-server/logs/system.txt
     - type: StdoutLogAppender
-2022-04-26 21:43:15 666 888 777 [INFO] [root] tests/test_config_log.cc:18 ------分界线-----
-2022-04-26 21:43:15 666 888 777 [INFO] [root] tests/test_config_log.cc:19 
-- name: root
+2022-05-09 20:35:39 333529	_1	4	[INFO]	[root]	example/tiny_webserver.cc:300	- name: root
   level: INFO
-  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
   appenders:
     - type: FileLogAppender
       file: /home/pudge/workspace/pudge-server/logs/root.txt
     - type: StdoutLogAppender
 - name: system
   level: INFO
-  formatter: "%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n"
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
   appenders:
     - type: FileLogAppender
       file: /home/pudge/workspace/pudge-server/logs/system.txt
     - type: StdoutLogAppender
+2022-05-09 20:36:00 333594	_2	4	[INFO]	[root]	example/tiny_webserver.cc:300	- name: root
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/root.txt
+    - type: StdoutLogAppender
+- name: system
+  level: INFO
+  formatter: "%d{%Y-%m-%d %H:%M:%S} %t%T%N%T%F%T[%p]%T[%c]%T%f:%l%T%m%n"
+  appenders:
+    - type: FileLogAppender
+      file: /home/pudge/workspace/pudge-server/logs/system.txt
+    - type: StdoutLogAppender
+2022-05-09 20:36:14 333591	UNKNOW	8	[INFO]	[root]	example/tiny_webserver.cc:170	user: 123 password: 123 has exists failed!
+2022-05-09 20:36:18 333591	UNKNOW	10	[INFO]	[root]	example/tiny_webserver.cc:170	user: 123 password: 123 has exists failed!
+2022-05-09 20:36:22 333591	UNKNOW	11	[INFO]	[root]	example/tiny_webserver.cc:177	user: 1234 password: 123 register scuccessful!
+2022-05-09 21:23:15 337387	_0	8	[INFO]	[root]	example/tiny_webserver.cc:177	user:  password:  register scuccessful!
+2022-05-09 22:08:07 341127	_2	5	[INFO]	[root]	example/tiny_webserver.cc:306	3306
+2022-05-09 23:53:34 346692	_1	6	[INFO]	[root]	example/tiny_webserver.cc:308	url: localhost
+user: root
+password: root
+databasename: yourdb
+port: 3306
+maxconn: 15
+2022-05-10 00:07:07 348015	_2	8	[INFO]	[root]	example/tiny_webserver.cc:170	user: 1234 password: 123 has exists failed!
+2022-05-10 00:07:11 348012	UNKNOW	9	[INFO]	[root]	example/tiny_webserver.cc:177	user: asd password: cyh register scuccessful!

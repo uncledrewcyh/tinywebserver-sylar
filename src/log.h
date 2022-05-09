@@ -446,5 +446,46 @@ private:
 /// 日志器管理类单例模式
 typedef pudge::Singleton<LoggerManager> LoggerMgr;
 
+/**
+ * @brief: 日志输出的定义格式
+ */
+struct LogAppenderDefine {
+    int type = 0; //1 File, 2 Stdout
+    LogLevel::Level level = LogLevel::UNKNOW;
+    std::string formatter;
+    std::string file;
+
+    bool operator==(const LogAppenderDefine& oth) const {
+        return type == oth.type
+            && level == oth.level
+            && formatter == oth.formatter
+            && file == oth.file;
+    }
+};
+
+/**
+ * @brief: 日志器的定义格式
+ */
+struct LogDefine {
+    std::string name;
+    LogLevel::Level level = LogLevel::UNKNOW;
+    std::string formatter;
+    std::vector<LogAppenderDefine> appenders;
+
+    bool operator==(const LogDefine& oth) const {
+        return name == oth.name
+            && level == oth.level
+            && formatter == oth.formatter
+            && appenders == appenders;
+    }
+
+    bool operator<(const LogDefine& oth) const {
+        return name < oth.name;
+    }
+
+    bool isValid() const {
+        return !name.empty();
+    }
+};
 
 }

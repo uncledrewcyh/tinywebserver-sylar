@@ -2,18 +2,20 @@
 #include "src/bytearray.h"
 #include "src/db/mysql_pool.h"
 #include "functional"
-static pudge::Logger::ptr g_logger = PUDGE_LOG_ROOT();
+
+pudge::Logger::ptr g_logger = PUDGE_LOG_ROOT();
+
+pudge::ConfigVar<std::string>::ptr g_host_addr = pudge::Config::Lookup("host", std::string("0.0.0.0:9006"), "host ip config");
+
 static const char* judge_html = "/home/pudge/workspace/pudge-server/root/judge.html";
 static const char* register_html = "/home/pudge/workspace/pudge-server/root/register.html";
 static const char* log_html = "/home/pudge/workspace/pudge-server/root/log.html";
 static const char* welcome_html = "/home/pudge/workspace/pudge-server/root/welcome.html";
 static const char* log_error_html = "/home/pudge/workspace/pudge-server/root/logError.html";
 static const char* register_error_html = "/home/pudge/workspace/pudge-server/root/registerError.html";
-
 static const char* pic1 = "/home/pudge/workspace/pudge-server/root/xxx.jpg";
 static const char* vid1 = "/home/pudge/workspace/pudge-server/root/video/xxx.mp4";
 static const char* favicon = "/home/pudge/workspace/pudge-server/root/favicon.ico";
-
 static const char* vid1_html = "/home/pudge/workspace/pudge-server/root/video.html";
 static const char* pic1_html = "/home/pudge/workspace/pudge-server/root/picture.html";
 
@@ -290,10 +292,20 @@ void TinyWebserver::handleClient(pudge::Socket::ptr client) {
 }
 
 void run() {
-    TinyWebserver::ptr server(new TinyWebserver(true));
+    TinyWebserver::ptr server(new TinyWebserver(false));
     server->setName("pudge");
 
-    pudge::Address::ptr addr = pudge::Address::LookupAnyIPAddress("0.0.0.0:9006");
+    PUDGE_LOG_INFO(g_logger) << "loading Config...";
+
+    pudge::Config::LoadFromConfDir("/home/pudge/workspace/pudge-server/conf");
+
+    pudge::Address::ptr addr = pudge::Address::LookupAnyIPAddress(g_host_addr->getValue());
+    
+    // pudge::ConfigVar<pudge::MysqlDefine>::ptr foo
+    //      = pudge::Config::Lookup<pudge::MysqlDefine>("db");
+
+    // PUDGE_LOG_INFO(g_logger) << foo->toString();
+
     while(!server->bind(addr)) {
         sleep(2);
     }

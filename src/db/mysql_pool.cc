@@ -1,41 +1,34 @@
 #include "mysql_pool.h"
-#include "../log.h"
-#include "../config.h"
+
 
 static pudge::Logger::ptr g_logger = PUDGE_LOG_NAME("system");
-static pudge::ConfigVar<std::string>::ptr g_url =
-    pudge::Config::Lookup("db.url",std::string("localhost"), "db.url");
-
-static pudge::ConfigVar<std::string>::ptr g_User =
-    pudge::Config::Lookup("db.user",std::string("root"), "db.User");
-
-static pudge::ConfigVar<std::string>::ptr g_PassWord =
-    pudge::Config::Lookup("db.password"
-            ,std::string("root")
-            , "db.PassWord");
-
-static pudge::ConfigVar<std::string>::ptr g_DataBaseName =
-    pudge::Config::Lookup("db.databasename"
-            ,std::string("yourdb")
-            , "db.DataBaseName");
-
-static pudge::ConfigVar<int>::ptr g_Port =
-    pudge::Config::Lookup("db.port"
-            ,(int)3306
-            , "db.Port");
-
-static pudge::ConfigVar<int>::ptr g_MaxConn =
-    pudge::Config::Lookup("db.maxconn"
-            ,(int)10
-            , "db.MaxConn");
 
 namespace pudge{
 
+
+
+static pudge::ConfigVar<MysqlDefine>::ptr g_mysql_define
+         = pudge::Config::Lookup("db", MysqlDefine(), "mysql config");
+
+struct MysqlInit {
+    MysqlInit() {
+        g_mysql_define->addListener([](const MysqlDefine& old_value, const MysqlDefine& new_value) {
+            MysqlMgr::GetInstance()-> init(g_mysql_define->getValue().url, g_mysql_define->getValue().user, g_mysql_define->getValue().password, 
+                                            g_mysql_define->getValue().databasename, g_mysql_define->getValue().port,  g_mysql_define->getValue().maxconn);
+            PUDGE_LOG_INFO(g_logger) << "Mysql config have been changed...";
+        });
+        // PUDGE_LOG_INFO(g_logger) << "Mysqlinit";
+        // PUDGE_LOG_INFO(g_logger) << g_mysql_define->toString();
+    }
+};
+
+static MysqlInit _mysqlinit;
+
 Mysql_pool::Mysql_pool()
             : m_CurConn(0)
-            , m_FreeConn(0) {
-    init(g_url->getValue(), g_User->getValue(), g_PassWord->getValue(), 
-    g_DataBaseName->getValue(), g_Port->getValue(),  g_MaxConn->getValue());
+            , m_FreeConn(0) {           
+    init(g_mysql_define->getValue().url, g_mysql_define->getValue().user, g_mysql_define->getValue().password, 
+    g_mysql_define->getValue().databasename, g_mysql_define->getValue().port,  g_mysql_define->getValue().maxconn);
 }
 
 Mysql_pool::~Mysql_pool() {
@@ -103,6 +96,8 @@ void Mysql_pool::init(std::string url, std::string User, std::string PassWord, s
 	m_PassWord = PassWord;
 	m_DatabaseName = DataBaseName;
 
+    ///先销毁
+    DestroyPool();
 	for (int i = 0; i < MaxConn; i++)
 	{
 		MYSQL *con = NULL;

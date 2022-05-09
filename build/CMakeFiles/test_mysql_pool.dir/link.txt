@@ -1,0 +1,1 @@
+/usr/bin/c++   -rdynamic -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-builtin-macro-redefined -Wno-deprecated-declarations  -rdynamic CMakeFiles/test_mysql_pool.dir/tests/test_mysql_pool.cc.o  -o ../bin/test_mysql_pool  -Wl,-rpath,/home/pudge/workspace/pudge-server/lib ../lib/libpudge.so -lpthread -ldl -lmysqlclient /usr/local/lib/libyaml-cpp.a 

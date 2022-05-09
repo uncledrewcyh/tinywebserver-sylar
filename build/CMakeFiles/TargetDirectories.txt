@@ -1,0 +1,5 @@
+/home/pudge/workspace/pudge-server/build/CMakeFiles/rebuild_cache.dir
+/home/pudge/workspace/pudge-server/build/CMakeFiles/edit_cache.dir
+/home/pudge/workspace/pudge-server/build/CMakeFiles/test_mysql_pool.dir
+/home/pudge/workspace/pudge-server/build/CMakeFiles/tiny_webserver.dir
+/home/pudge/workspace/pudge-server/build/CMakeFiles/pudge.dir

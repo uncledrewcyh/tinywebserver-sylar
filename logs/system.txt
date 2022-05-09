@@ -1,4 +1,77 @@
-2022-04-26 21:28:19 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
-2022-04-26 21:37:15 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
-2022-04-26 21:42:03 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
-2022-04-26 21:43:15 666 888 777 [INFO] [system] src/config.cc:93 LoadConfFile file=/home/pudge/workspace/pudge-server/conf/log.yml ok
+2022-05-09 20:10:58 330644	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:10:58 330644	_2	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-09 20:11:08 330643	_1	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-09 20:11:17 330641	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/log
+2022-05-09 20:11:19 330643	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/check_log
+2022-05-09 20:11:20 330643	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-09 20:11:20 330643	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/video/xxx.mp4
+2022-05-09 20:12:48 330839	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:12:48 330839	_2	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-09 20:12:56 330836	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-09 20:12:56 330838	_1	8	[INFO]	[system]	src/http/servlet.cc:29	/video/xxx.mp4
+2022-05-09 20:12:57 330836	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-09 20:13:27 330837	_0	8	[INFO]	[system]	src/http/servlet.cc:29	/picture/1
+2022-05-09 20:13:27 330837	_0	8	[INFO]	[system]	src/http/servlet.cc:29	/picture/xxx.jpg
+2022-05-09 20:35:00 333238	_1	6	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:35:00 333238	_1	6	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-09 20:35:39 333529	_1	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:35:39 333529	_1	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-09 20:36:00 333594	_2	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:36:00 333594	_2	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-09 20:36:03 333591	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-09 20:36:04 333592	_0	9	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-09 20:36:09 333592	_0	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-09 20:36:09 333594	_2	6	[INFO]	[system]	src/iomanager.cc:298	name= idle stopping exit
+2022-05-09 20:36:09 333594	_2	0	[INFO]	[system]	src/scheduler.cc:241	idle fiber term
+2022-05-09 20:36:14 333591	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 20:36:18 333591	UNKNOW	10	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 20:36:22 333591	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 20:36:25 333591	UNKNOW	12	[INFO]	[system]	src/http/servlet.cc:29	/check_log
+2022-05-09 20:36:25 333592	_0	9	[INFO]	[system]	src/http/servlet.cc:29	/picture/1
+2022-05-09 20:36:25 333591	UNKNOW	13	[INFO]	[system]	src/http/servlet.cc:29	/picture/xxx.jpg
+2022-05-09 20:45:32 334684	_1	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:45:32 334684	_1	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 20:49:00 334878	_1	6	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:49:00 334878	_1	6	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 20:56:32 335294	_1	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:56:32 335294	_1	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 20:56:43 335293	_0	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-09 20:56:43 335295	_2	9	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-09 20:56:46 335294	_1	10	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-09 20:56:50 335294	_1	10	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 20:57:14 335507	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 20:57:14 335507	_2	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 20:57:19 335506	_1	8	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 21:23:11 337389	_2	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 21:23:11 337389	_2	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 21:23:15 337387	_0	8	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-09 21:23:15 337388	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-09 21:51:48 338861	UNKNOW	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 21:52:14 338861	UNKNOW	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 21:57:40 339879	_2	6	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 22:08:07 341127	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 22:08:07 341127	_2	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 23:40:27 345060	_1	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 23:40:27 345060	_1	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 23:41:25 345205	UNKNOW	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 23:41:25 345205	UNKNOW	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-09 23:45:57 345849	_1	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 23:46:28 345973	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 23:53:34 346692	_1	6	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-09 23:53:34 346692	_1	6	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-10 00:05:04 347695	_2	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 00:05:04 347695	_2	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=32 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-10 00:06:29 347934	_1	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 00:06:29 347934	_1	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9000]
+2022-05-10 00:07:00 348013	_0	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 00:07:00 348013	_0	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-10 00:07:02 348015	_2	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 00:07:03 348012	UNKNOW	9	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-10 00:07:05 348012	UNKNOW	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 00:07:07 348015	_2	8	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-10 00:07:11 348012	UNKNOW	9	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-10 00:07:15 348014	_1	10	[INFO]	[system]	src/http/servlet.cc:29	/check_log
+2022-05-10 00:07:15 348014	_1	10	[INFO]	[system]	src/http/servlet.cc:29	/picture/1
+2022-05-10 00:07:15 348015	_2	8	[INFO]	[system]	src/http/servlet.cc:29	/picture/xxx.jpg
+2022-05-10 00:07:18 348012	UNKNOW	9	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-10 00:07:18 348013	_0	11	[INFO]	[system]	src/http/servlet.cc:29	/video/xxx.mp4

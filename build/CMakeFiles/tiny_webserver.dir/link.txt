@@ -1,0 +1,1 @@
+/usr/bin/c++   -rdynamic -O0 -fPIC -ggdb -std=c++11 -Wall -Wno-deprecated -Werror -Wno-builtin-macro-redefined -Wno-deprecated-declarations  -rdynamic CMakeFiles/tiny_webserver.dir/example/tiny_webserver.cc.o  -o ../bin/tiny_webserver  -Wl,-rpath,/home/pudge/workspace/pudge-server/lib ../lib/libpudge.so -lpthread -ldl -lmysqlclient /usr/local/lib/libyaml-cpp.a 

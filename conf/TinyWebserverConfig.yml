@@ -1,0 +1,27 @@
+host: "0.0.0.0:9006"
+db: 
+    url: localhost
+    user: root
+    password: root
+    databasename: yourdb
+    port: 3306
+    maxconn: 15
+logs:
+    - name: root
+      level: info
+      appenders:
+          - type: FileLogAppender
+            foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+            file: /home/pudge/workspace/pudge-server/logs/root.txt
+          - type: StdoutLogAppender
+            foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+            
+    - name: system
+      level: info
+      appenders:
+          - type: FileLogAppender
+            foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+            file: /home/pudge/workspace/pudge-server/logs/system.txt
+          - type: StdoutLogAppender
+            foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+            
