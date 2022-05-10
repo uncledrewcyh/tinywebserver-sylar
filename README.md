@@ -85,11 +85,9 @@ host: "0.0.0.0:9006"
 
 线程模块相关的类：
 
-Thread：线程类，构造函数传入线程入口函数和线程名称，线程入口函数类型为void()，如果带参数，则需要用std::bind进行绑定。线程类构造之后线程即开始运行，构造函数在线程真正开始运行之后返回。
+`Thread`：线程类，构造函数传入线程入口函数和线程名称，线程入口函数类型为`std::function<void()>`。在`pthread_create`绑定`Thread::run`函数，并将`Thread`的`this`指针作为参数传入，在`Thread::run`中完成线程生存期变量`t_thread`和`t_thread_name`的赋值以及成员变量`thread->m_id`的赋值.
 
-线程模块相关的类：
-
-`Thread`：线程类，构造函数传入线程入口函数和线程名称，线程入口函数类型为void()，如果带参数，则需要用std::bind进行绑定。线程类构造之后线程即开始运行，构造函数在线程真正开始运行之后返回。
+`Semaphore`: 为了确保构造线程池时，每个成员变量`thread->m_id`已经初始化成功完成.
 
 线程同步类（这部分被拆分到mutex.h)中：  
 
@@ -98,17 +96,67 @@ Thread：线程类，构造函数传入线程入口函数和线程名称，线�
 `RWMutex`: 读写锁，基于pthread_rwlock_t实现  
 `Spinlock`: 自旋锁，基于pthread_spinlock_t实现  
 
-
 ### 协程模块
 
-协程：用户态的线程，相当于线程中的线程，更轻量级。后续配置socket hook，可以把复杂的异步调用，封装成同步操作。降低业务逻辑的编写复杂度。 目前该协程是基于ucontext_t来实现的，后续将支持采用boost.context里面的fcontext_t的方式实现。
+协程：用户态的线程，相当于线程中的线程，更轻量级。后续配置socket hook，可以把复杂的异步调用，封装成同步操作。降低业务逻辑的编写复杂度。该协程是基于`ucontext_t`来实现的，利用`makecontext`和`swapcontext`等api实现协程的创建和切换. 协程栈大小可由`g_fiber_stack_size`配置变量进行修改配置.
 
-协程原语：
+非对称协程调度模型:
+```
+子协程SubFiber只能和主协程MainFiber切换，而不能和另一个子协程切换.
+Thread --> MainFiber <--> SubFiber
+              ^
+              |
+              v
+            subFiber  
+```
+实现方法：
+利用如下两个变量进行调度切换：
+```cpp
+static thread_local Fiber* t_fiber = nullptr; ///当前调用协程
+static thread_local Fiber::ptr t_threadFiber = nullptr; ///主协程
+```
 
-`resume`：恢复，使协程进入执行状态  
-`yield`: 让出，协程让出执行权
+`t_threadFiber` 在 `MainFiber` 的构造中进行初始化。
 
-yield和resume是同步的，也就是，一个协程的resume必然对应另一个协程的yield，反之亦然，并且，一条线程同一时间只能有一个协程是执行状态。
+```
+首次调用GetThis(), 此时无任何运行协程 -> new Fiber -> shared from this 
+
+-> t_threadFiber = main_fiber;
+
+```
+
+`t_fiber` 在 `SetThis` 的中进行赋值
+
+三处`SetThis`, 出现在新的协程切换进来时。
+```
+Fiber::Fiber() -> setThis()
+
+Fiber::call()  -> setThis()
+
+Fiber::swapIn() -> setThis()
+```
+
+协程有五种状态
+```
+/// 初始化状态
+INIT,
+/// 暂停状态
+HOLD,
+/// 执行中状态
+EXEC,
+/// 结束状态
+TERM,
+/// 可执行状态
+READY,
+/// 异常状态
+EXCEPT
+```
+1. 构造函数初始化默认为 `INIT`状态，主协程构造中直接赋值为`EXEC`(默认是在运行的)
+2. `HOLD`状态并没有多余处理。
+3. `EXEC`在`swapIn`和`call`以及`Fiber()`中赋值
+4. `TERM`在协程`callBack`函数执行完毕后赋值
+5. `READY`只在`YieldToReady`中出现，尽量不适用因为协程的执行应该由用户来决定。
+6. `EXCEPT`在协程`callBack`中抛出异常时出现，没有进行处理。
 
 ### 协程调度模块
 
