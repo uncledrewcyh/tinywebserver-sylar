@@ -54,34 +54,38 @@ str: 普通字符串            StringFormatItem
 
 ### 配置模块
 
-采用约定优于配置的思想。定义即可使用。支持变更通知功能。使用YAML文件做为配置内容，配置名称大小写不敏感。支持级别格式的数据类型，支持STL容器(vector,list,set,map等等),支持自定义类型的支持（需要实现序列化和反序列化方法)。
+采用约定优于配置的思想。定义即可使用。支持变更通知功能。使用YAML文件做为配置内容，配置名称大小写不敏感。支持级别格式的数据类型，支持STL容器(vector,list,set,map等等), 支持自定义类型的支持（需要实现序列化和反序列化方法)。
 
 使用方式如下：
 
 ```cpp
-static sylar::ConfigVar<int>::ptr g_tcp_connect_timeout = 
-    sylar::Config::Lookup("tcp.connect.timeout", 5000, "tcp connect timeout");
+pudge::ConfigVar<std::string>::ptr g_host_addr = 
+            pudge::Config::Lookup("host", std::string("0.0.0.0:9006"), "host ip config");
 ```
 
-定义了一个tcp连接超时参数，可以直接使用`g_tcp_connect_timeout->getValue()`获取参数的值，当配置修改重新加载，该值自动更新（并触发对应的值更新回调函数），上述配置格式如下：
+定义了一个服务器主机地址参数，可以直接使用`g_host_addr->getValue()`获取参数的值.
+
+对应的yaml文件格式如下：
 
 ```yaml
-tcp:
-    connect:
-            timeout: 10000
+host: "0.0.0.0:9006"
 ```
 
 与配置模块相关的类：
 
 `ConfigVarBase`: 配置参数基类，定义了一个配置参数的基本属性和方法，比如名称，描述，以及toString/fromString两个纯虚函数，配置参数的类型和值由继承类实现。
 
-`ConfigVar`: 配置参数类，这是一个模板类，有三个模板参数，一个是类型T，另外两个是FromStr和ToStr，这两个模板参数是仿函数，共中FromStr用于将字符串转类型T，ToStr用于将T转字符串。这两个仿函数通过一个类型转换模板类和不同的片特化类来实现不同类型的序列化与反序列化。ConfigVar类包含了一个T类型的配置参数值成员和一个变更回调函数数组，以及toString/fromString函数实现。toString/fromString用到了模板参数toStr/fromStr。此外，ConfigVar还提供了setValue/getValue方法用于设置/修改值，并触发回调函数数组，以及addListener/delListener方法用于添加或删除回调函数。
+`ConfigVar`: 由`ConfigVarBase`派生于的配置参数类，这是一个模板类，有三个模板参数，一个是类型T，另外两个是`FromStr`和`ToStr`反序列化和序列化的类类型仿函数(支持偏特化方法)，共中`FromStr`用于将字符串转类型`T`，`ToStr`用于将`T`转字符串。这两个模板函数以`Boost`库的`boost::lexical_cast`为基础，通过定义不同的偏特化仿函数类来实现`基础数据类型的STL类`和的序列化与反序列化，通过定义不同的特例化仿函数类来实现自定义类型的转换，其中`Log`模块、`Mysql_pool`模块的参数配置均是利用了特例化仿函数进行读取配置。ConfigVar类包含了一个`T`类型的配置参数值成员和一个参数变更回调函数数组. `toString/fromString`用到了模板参数`toStr/fromStr`。此外，ConfigVar还提供了`setValue/getValue`方法用于设置/修改值，并触发回调函数数组，以及`addListener/delListener`方法用于添加或删除回调函数。
 
-`Config`: ConfigVar的管理类，负责托管全部的ConfigVar对象。提供Lookup方法，根据参数名称查询配置参数。如果调用Lookup查询时同时提供了默认值和配置描述信息，那么在未找到对应的配置时，会创建一个新的配置项，这样就保证了配置模块定义即可用的特性。除此外，Config类还提供了LoadFromYaml和LoadFromConfDir两个方法，用于从YAML结点或从命令行-c选项指定的配置文件路径中加载配置。Config的全部成员变量和方法都是static类型，保证了全局只有一个实例。
+`Config`: ConfigVar的管理类，采用单例模式确保整个文件只有一个实例化对象。包含有`ConfigVarMap`成员来管理全部的`ConfigVar`对象。提供`Lookup`方法，根据参数名称查询配置参数。如果调用Lookup查询时同时提供了默认值和配置描述信息，那么在未找到对应的配置时，会创建一个新的配置项，这样就保证了配置模块定义即可用的特性。除此外，Config类还提供了`LoadFromYaml`和`LoadFromConfDir`两个方法，用于从YAML结点或定义的配置文件路径中加载配置文件。。
 
 ### 线程模块
 
-线程模块，封装了pthread里面的一些常用功能，Thread,Semaphore,Mutex,RWMutex,Spinlock等对象，可以方便开发中对线程日常使用。为什么不适用c++11里面的thread 本框架是使用C++11开发，不使用thread，是因为thread其实也是基于pthread实现的。并且C++11里面没有提供读写互斥量，RWMutex，Spinlock等，在高并发场景，这些对象是经常需要用到的。所以选择了自己封装pthread。
+线程模块，封装了pthread里面的一些常用功能，Thread,Semaphore,Mutex,RWMutex等对象，可以方便开发中对线程日常使用。
+
+线程模块相关的类：
+
+Thread：线程类，构造函数传入线程入口函数和线程名称，线程入口函数类型为void()，如果带参数，则需要用std::bind进行绑定。线程类构造之后线程即开始运行，构造函数在线程真正开始运行之后返回。
 
 线程模块相关的类：
 
@@ -93,10 +97,7 @@ tcp:
 `Mutex`: 互斥锁，基于pthread_mutex_t实现  
 `RWMutex`: 读写锁，基于pthread_rwlock_t实现  
 `Spinlock`: 自旋锁，基于pthread_spinlock_t实现  
-`CASLock`: 原子锁，基于std::atomic_flag实现  
 
-待改进：
-线程取消及线程清理
 
 ### 协程模块
 
