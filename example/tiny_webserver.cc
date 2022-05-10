@@ -314,7 +314,7 @@ void run() {
 }
 
 int main(int argc, char** argv){
-    pudge::IOManager iom(4);
+    pudge::IOManager iom(1);
     iom.schedule(run);
     return 0;
 }

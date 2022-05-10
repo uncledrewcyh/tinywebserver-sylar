@@ -133,7 +133,7 @@ bool Mysql_pool::Query(const char* ch, std::vector<std::vector<std::string>>& ou
         PUDGE_LOG_ERROR(g_logger) << "MySQL Error: no connection";
         return false;
     }
-
+    
     if(mysql_query(con, ch)) {
         PUDGE_LOG_ERROR(g_logger) << "MySQL Error: mysql_query" << "----error: " << mysql_error(con);
         return false;
@@ -142,7 +142,7 @@ bool Mysql_pool::Query(const char* ch, std::vector<std::vector<std::string>>& ou
     MYSQL_RES* result = mysql_store_result(con);
 
     int num_fields = mysql_num_fields(result);
-
+    // PUDGE_LOG_INFO(g_logger) << " mysql_query call...";
     while(MYSQL_ROW row = mysql_fetch_row(result)) {
         std::vector<std::string> cur;
         for(int i = 0; i < num_fields; i++) {

@@ -322,6 +322,7 @@ int socket(int domain, int type, int protocol) {
     if (fd == -1) {
         return fd;
     }
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     ///创建fd_ctx
     pudge::FdMgr::GetInstance()->get(fd, true);
     return fd;
@@ -342,22 +343,27 @@ int accept(int s, struct sockaddr *addr, socklen_t *addrlen) {
 
 /// read 
 ssize_t read(int fd, void *buf, size_t count) {
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     return do_io(fd, read_f, "read", pudge::IOManager::READ, SO_RCVTIMEO, buf, count);
 }
 
 ssize_t readv(int fd, const struct iovec *iov, int iovcnt) {
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     return do_io(fd, readv_f, "readv", pudge::IOManager::READ, SO_RCVTIMEO, iov, iovcnt);
 }
 
 ssize_t recv(int sockfd, void *buf, size_t len, int flags) {
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     return do_io(sockfd, recv_f, "recv", pudge::IOManager::READ, SO_RCVTIMEO, buf, len, flags);
 }
 
 ssize_t recvfrom(int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_addr, socklen_t *addrlen) {
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     return do_io(sockfd, recvfrom_f, "recvfrom", pudge::IOManager::READ, SO_RCVTIMEO, buf, len, flags, src_addr, addrlen);
 }
 
 ssize_t recvmsg(int sockfd, struct msghdr *msg, int flags) {
+    // PUDGE_LOG_INFO(g_logger) << pudge::BacktraceToString();
     return do_io(sockfd, recvmsg_f, "recvmsg", pudge::IOManager::READ, SO_RCVTIMEO, msg, flags);
 }
 
