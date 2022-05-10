@@ -53,3 +53,4 @@ port: 3306
 maxconn: 15
 2022-05-10 00:07:07 348015	_2	8	[INFO]	[root]	example/tiny_webserver.cc:170	user: 1234 password: 123 has exists failed!
 2022-05-10 00:07:11 348012	UNKNOW	9	[INFO]	[root]	example/tiny_webserver.cc:177	user: asd password: cyh register scuccessful!
+2022-05-10 22:23:48 1911	UNKNOW	11	[INFO]	[root]	example/tiny_webserver.cc:170	user:  password:  has exists failed!

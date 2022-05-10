@@ -79,3 +79,109 @@
 2022-05-10 15:27:02 395199	_1	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
 2022-05-10 15:27:59 395452	_2	4	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
 2022-05-10 15:27:59 395452	_2	4	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-10 18:56:34 418797	UNKNOW	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 18:56:34 418797	UNKNOW	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:34 418797	UNKNOW	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:36 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:36 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:38 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:38 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:40 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:40 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:42 395433	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 18:56:42 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:42 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:44 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:44 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:46 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:46 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:48 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:48 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:50 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:50 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:52 418798	_0	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:52 418798	_0	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:54 418797	UNKNOW	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:54 418797	UNKNOW	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:56 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:56 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:56:58 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:56:58 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:00 395433	UNKNOW	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 18:57:00 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:00 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:01 395452	_2	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 18:57:02 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:02 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:04 418800	_2	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:04 418800	_2	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:06 395451	_1	10	[INFO]	[system]	src/http/servlet.cc:29	/check_register
+2022-05-10 18:57:06 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:06 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:08 418799	_1	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:08 418799	_1	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:10 418800	_2	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:10 418800	_2	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:12 418800	_2	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:12 418800	_2	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:14 418800	_2	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:14 418800	_2	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:16 418800	_2	5	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:16 418800	_2	5	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:53 419522	UNKNOW	6	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 18:57:53 419522	UNKNOW	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:53 419522	UNKNOW	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:55 419525	_2	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:55 419525	_2	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:57 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:57 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:57:59 419525	_2	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:57:59 419525	_2	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:58:01 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:58:01 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:58:03 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:58:03 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:58:05 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:58:05 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:58:07 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:58:07 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 18:58:09 419523	_0	6	[ERROR]	[system]	src/socket.cc:166	bind error errrno=98 errstr=Address already in use
+2022-05-10 18:58:09 419523	_0	6	[ERROR]	[system]	src/tcp_server.cc:46	bind fail errno=98 errstr=Address already in use addr=[0.0.0.0:9006]
+2022-05-10 19:02:58 1911	UNKNOW	5	[INFO]	[system]	src/config.cc:93	LoadConfFile file=/home/pudge/workspace/pudge-server/conf/TinyWebserverConfig.yml ok
+2022-05-10 19:02:58 1911	UNKNOW	5	[INFO]	[system]	src/tcp_server.cc:68	type=http name=pudge server bind success: [Socket sock=18 is_connected=0 family=2 type=1 protocol=0 local_address=0.0.0.0:9006]
+2022-05-10 19:03:09 1912	_0	8	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:03:16 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:03:24 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:03:28 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/log
+2022-05-10 19:03:29 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 19:03:35 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/check_log
+2022-05-10 19:03:43 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/picture/1
+2022-05-10 19:03:46 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:03:46 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/favicon.ico
+2022-05-10 19:03:47 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/picture/xxx.jpg
+2022-05-10 19:03:59 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-10 19:04:00 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-10 19:04:00 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/video/xxx.mp4
+2022-05-10 19:04:41 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 19:05:07 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:05:09 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/log
+2022-05-10 19:05:09 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/log
+2022-05-10 19:05:12 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/check_log
+2022-05-10 19:05:13 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/video/1
+2022-05-10 19:05:13 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/video/xxx.mp4
+2022-05-10 19:05:43 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:13 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:28 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:29 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:37 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:41 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:42 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:15:46 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:16:07 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 19:16:19 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/register
+2022-05-10 19:16:27 1913	_1	9	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:16:54 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 19:16:54 1913	_1	3	[INFO]	[system]	src/iomanager.cc:298	name= idle stopping exit
+2022-05-10 19:16:54 1913	_1	0	[INFO]	[system]	src/scheduler.cc:242	idle fiber term
+2022-05-10 20:36:36 1912	_0	10	[INFO]	[system]	src/http/servlet.cc:29	/
+2022-05-10 22:23:48 1911	UNKNOW	11	[INFO]	[system]	src/http/servlet.cc:29	/check_register

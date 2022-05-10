@@ -1,5 +1,92 @@
 # TinyWebServer-sylar 基于协程的C++高性能服务器框架
+## 快速运行
+* 服务器测试环境
+  * Ubuntu版本16.04
+  * MySQL版本5.7.29
+* 浏览器测试环境
+  * Windows、Linux均可
+  * Chrome
+  * FireFox
+  * 其他浏览器暂无测试
+* 测试前确认已安装MySQL数据库
+  ```C++
+  sudo apt-get install mysql-client
+  sudo apt-get install mysql-server
+  sudo apt-get install libmysql++-dev
+  ```
+  ```C++
+  // 建立yourdb库
+  create database yourdb;
+  
+  // 创建user表
+  USE yourdb;
+  CREATE TABLE user(
+      username char(50) NULL,
+      passwd char(50) NULL
+  )ENGINE=InnoDB;
+  
+  // 添加数据
+  INSERT INTO user(username, passwd) VALUES('name', 'passwd');
+  ```
+* 测试前确认已安装YAML-CPP
+  ```C++
+  git clone https://github.com/jbeder/yaml-cpp.git
+  cd yaml-cpp
+  cd build && mkdir build
+  make
+  make install
+  ```  
+* 测试前确认已安装boost
+  ```C++
+  sudo apt install libdev-all-dev
+  ```       
+* 修改`conf/TinyWebserverConfig.yml`中的服务器初始化信息
 
+  ```YAML
+   host: "0.0.0.0:9006" # 主机地址
+   db:                  # 数据库信息
+      url: localhost
+      user: root
+      password: root
+      databasename: yourdb
+      port: 3306
+      maxconn: 15
+   logs:                # 日志配置
+      - name: root
+         level: info
+         appenders:
+            - type: FileLogAppender
+               foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+               file: /home/pudge/workspace/pudge-server/logs/root.txt
+            - type: StdoutLogAppender
+               foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+               
+      - name: system
+         level: info
+         appenders:
+            - type: FileLogAppender
+               foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+               file: /home/pudge/workspace/pudge-server/logs/system.txt
+            - type: StdoutLogAppender
+               foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
+  ```
+
+* build
+
+  ```C++
+  sh ./build.sh
+  ```
+
+* 启动server
+
+  ```C++
+  ./bin/tiny_webserver
+  ```
+
+* 浏览器端
+  ```C++
+  ip:9006
+  ```
 ## 模块概述
 
 ### 日志模块
