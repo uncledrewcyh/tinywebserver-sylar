@@ -1,8 +1,8 @@
 # TinyWebServer-sylar 基于协程的C++高性能服务器框架
 ## 快速运行
 * 服务器测试环境
-  * Ubuntu版本16.04
-  * MySQL版本5.7.29
+  * Ubuntu 20.04.3 LTS
+  * MySQL版本8.0.29
 * 浏览器测试环境
   * Windows、Linux均可
   * Chrome
