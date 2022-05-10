@@ -1,5 +1,6 @@
 # TinyWebServer-sylar 基于协程的C++高性能服务器框架
 ## 快速运行
+### 环境
 * 服务器测试环境
   * Ubuntu 20.04.3 LTS
   * MySQL版本8.0.29
@@ -8,6 +9,7 @@
   * Chrome
   * FireFox
   * 其他浏览器暂无测试
+### 依赖库安装
 * 测试前确认已安装MySQL数据库
   ```C++
   sudo apt-get install mysql-client
@@ -40,6 +42,7 @@
   ```C++
   sudo apt install libdev-all-dev
   ```       
+### 配置文件
 * 修改`conf/TinyWebserverConfig.yml`中的服务器初始化信息
 
   ```YAML
@@ -70,7 +73,7 @@
             - type: StdoutLogAppender
                foramt: '%d{%Y-%m-%d %H:%M:%S} %t %N %F [%p] [%c] %f:%l %m%n'
   ```
-
+### 编译运行
 * build
 
   ```C++
