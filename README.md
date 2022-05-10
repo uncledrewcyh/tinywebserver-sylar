@@ -162,7 +162,24 @@ EXCEPT
 
 协程调度器，管理协程的调度，内部实现为一个线程池，支持协程在多线程中切换，也可以指定协程在固定的线程中执行。是一个N-M的协程调度模型，N个线程，M个协程。重复利用每一个线程。
 
-主线程负责任务的消息队列`m_fibers`的添加, 副线程负责协程的调度.
+两种运行模式：
+1.主线程参与调度，也用于消息队列的添加. 主线程负责任务的消息队列`m_fibers`的添加, 副线程负责协程的调度.  `use_caller == true`，如下
+```
+MainThread --> MainFiber <-->  m_rootFiber <--> workFiber     (第 1 类)[需要陷入~IOManager中才进行调度]
+                   |               |
+                   |               |
+                   v               v
+                schedule          run
+                   
+SubThread  --> MainFiber <--> workFiber                       (第 2 类)
+                   |
+                   |               
+                   v 
+                  run
+                  ...
+```
+2.主线程不参与调度, 可用于消息队列`m_fibers`的添加. `use_caller == false`，如下
+
 ```
 MainThread --> MainFiber  
                    |               
