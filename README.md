@@ -354,13 +354,17 @@ ByteArray的底层存储是固定大小的块，以链表形式组织。每次�
 ### TcpServer模块
 基于Socket类，封装了一个通用的TcpServer的服务器类，提供简单的API，使用便捷，可以快速绑定一个或多个地址，启动服务，监听端口，accept连接，处理socket连接等功能。具体业务功能更的服务器实现，只需要继承该类就可以快速实现
 
+TcpServer类采用了Template Pattern设计模式，它的HandleClient是交由继承类来实现的。使用TcpServer时，必须从TcpServer派生一个新类，并重新实现子类的handleClient操作，example中的`TinyWebserver`即是这样操作。
+
 ### Stream模块
 封装流式的统一接口。将文件，socket封装成统一的接口。使用的时候，采用统一的风格操作。基于统一的风格，可以提供更灵活的扩展。所有的流结构都继承自抽象类Stream，Stream类规定了一个流必须具备read/write接口(纯虚函数)和readFixSize/writeFixSize接口，继承自Stream的类必须实现备read/write接口。
 
 现已实现套接字流结构`SocketStream`，将套接字封装成流结构，以支持Stream接口规范，除此外，SocketStream还支持套接字关闭操作以及获取本地/远端地址的操作。
 
 ### HTTP模块
-采用Ragel（有限状态机，性能媲美汇编），实现了HTTP/1.1的简单协议实现和uri的解析。基于SocketStream实现了HttpConnection(HTTP的客户端)和HttpSession(HTTP服务器端的链接）。基于TcpServer实现了HttpServer。提供了完整的HTTP的客户端API请求功能，HTTP基础API服务器功能
+采用Ragel（有限状态机，性能媲美汇编），实现了HTTP/1.1的简单协议实现和uri的解析。基于SocketStream实现了HttpSession (HTTP服务器端的链接）。基于TcpServer实现了HttpServer。提供了完整的HTTP的客户端API请求功能，HTTP基础API服务器功能.
 
 ### Servlet模块
-仿照java的servlet，实现了一套Servlet接口，实现了ServletDispatch，FunctionServlet。NotFoundServlet。支持uri的精准匹配，模糊匹配等功能。和HTTP模块，一起提供HTTP服务器功能
+仿照java的servlet，实现了一套Servlet接口，实现了ServletDispatch，FunctionServlet。NotFoundServlet。支持uri的精准匹配，模糊匹配(`fnmatch`)等功能。和HTTP模块，一起提供HTTP服务器功能
+
+
