@@ -309,3 +309,58 @@ hook系统底层和socket创建和设置相关的API，socket io相关的API，�
 
 实现方法: 通过动态库的全局符号介入功能，用自定义的接口来替换掉同名的系统调用接口。由于系统调用接口基本上是由C标准函数库libc提供的，所以这里要做的事情就是用自定义的动态库来覆盖掉libc中的同名符号, 利用系统调用`dlsym`找到被覆盖掉的libc中的实际系统调用函数，根据hook是否开启，来选择是否执行hook后的系统调用。
 
+该框架对以下函数进行了hook，并且只对socket fd进行了hook，如果操作的不是socket fd，那会直接调用系统原本的api，而不是hook之后的api：
+```
+sleep
+usleep
+nanosleep
+socket
+connect
+accept
+read
+readv
+recv
+recvfrom
+recvmsg
+write
+writev
+send
+sendto
+sendmsg
+close
+fcntl
+ioctl
+getsockopt
+setsockopt
+```
+
+### Socket模块
+封装了`Socket`类和统一的`Address`地址(包含TCP套接字，UDP套接字，Unix域套接字)类，提供了如下方法:
+1. 创建各种类型的套接字对象的方法
+2. 设置套接字选项，比如超时参数
+3. bind/connect/listen方法，实现绑定地址、发起连接、发起监听功能 
+4. accept方法，返回连入的套接字对象
+5. 发送、接收数据的方法
+6. 获取本地地址、远端地址的方法
+7. 获取套接字类型、地址类型、协议类型的方法
+8. 取消套接字读、写的方法
+
+
+### ByteArray序列化模块
+ByteArray二进制序列化模块，提供对二进制数据的常用操作。提供读写入基础类型int8_t,int16_t,int32_t,int64_t等，Protobuff(Varint和ZagZig)基础类型的读写，TLV格式序列化字符串的读写, 支持序列化到文件，以及从文件反序列化等功能。
+
+ByteArray的底层存储是固定大小的块，以链表形式组织。每次写入数据时，将数据写入到链表最后一个块中，如果最后一个块不足以容纳数据，则分配一个新的块并添加到链表结尾，再写入数据。ByteArray会记录当前的操作位置，每次写入数据时，该操作位置按写入大小往后偏移，如果要读取数据，则必须调用setPosition重新设置当前的操作位置。
+
+### TcpServer模块
+基于Socket类，封装了一个通用的TcpServer的服务器类，提供简单的API，使用便捷，可以快速绑定一个或多个地址，启动服务，监听端口，accept连接，处理socket连接等功能。具体业务功能更的服务器实现，只需要继承该类就可以快速实现
+
+### Stream模块
+封装流式的统一接口。将文件，socket封装成统一的接口。使用的时候，采用统一的风格操作。基于统一的风格，可以提供更灵活的扩展。所有的流结构都继承自抽象类Stream，Stream类规定了一个流必须具备read/write接口(纯虚函数)和readFixSize/writeFixSize接口，继承自Stream的类必须实现备read/write接口。
+
+现已实现套接字流结构`SocketStream`，将套接字封装成流结构，以支持Stream接口规范，除此外，SocketStream还支持套接字关闭操作以及获取本地/远端地址的操作。
+
+### HTTP模块
+采用Ragel（有限状态机，性能媲美汇编），实现了HTTP/1.1的简单协议实现和uri的解析。基于SocketStream实现了HttpConnection(HTTP的客户端)和HttpSession(HTTP服务器端的链接）。基于TcpServer实现了HttpServer。提供了完整的HTTP的客户端API请求功能，HTTP基础API服务器功能
+
+### Servlet模块
+仿照java的servlet，实现了一套Servlet接口，实现了ServletDispatch，FunctionServlet。NotFoundServlet。支持uri的精准匹配，模糊匹配等功能。和HTTP模块，一起提供HTTP服务器功能
